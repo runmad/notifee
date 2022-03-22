@@ -632,6 +632,20 @@
         } else {
           iosDictionary[@"inAppNotificationSettings"] = @-1;
         }
+      
+        if (@available(iOS 15.0, *)) {
+          iosDictionary[@"timeSensitive"] =
+              settings.timeSensitiveSetting ? @1 : @0;
+        } else {
+          iosDictionary[@"timeSensitive"] = @-1;
+        }
+      
+        if (@available(iOS 15.0, *)) {
+          iosDictionary[@"scheduledDelivery"] =
+              settings.scheduledDeliverySetting ? @1 : @0;
+        } else {
+          iosDictionary[@"scheduledDelivery"] = @-1;
+        }
 
         iosDictionary[@"showPreviews"] = showPreviews;
         iosDictionary[@"authorizationStatus"] = authorizationStatus;
